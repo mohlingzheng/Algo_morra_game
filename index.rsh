@@ -27,7 +27,6 @@ const Player = {
     ...hasRandom,
     getFinger: Fun([], UInt),
     getNumber: Fun([], UInt),
-    seeTotal: Fun([UInt], Null),
     seeOutcome: Fun([UInt], Null),
     informTimeout: Fun([], Null),
 }
@@ -104,7 +103,6 @@ export const main = Reach.App(() => {
 
         Bob.only(() => {
             const totalFinger = fingerAlice + fingerBob
-            interact.seeTotal(totalFinger)
         })
         Bob.publish(totalFinger)
             .timeout(relativeTime(deadline), () => closeTo(Alice, informTimeout))
